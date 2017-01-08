@@ -27,7 +27,6 @@ public class Comment {
     @Size(min=5, message = "Number of character must be greater then 5 characters")
     private String author;
 
-    @NotNull(message = "Can not be empty")
     private String date;
 
     public Comment(String newsId, String comment, String author, String date) {

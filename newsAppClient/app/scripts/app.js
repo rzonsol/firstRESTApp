@@ -15,19 +15,27 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-  ])
+    'ngTouch',
+    'RESTService'
+  ]).config(['$locationProvider', function($locationProvider) {
+    $locationProvider.hashPrefix('');
+  }])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        controller: 'newsCrtl',
+        controllerAs: 'newsDashBoard'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/add',{
+        templateUrl: 'views/add.html',
+        controller: 'newsCrtl',
+        controllerAs: 'newsDashBoard'
+      })
+      .when('/displayNews/:id', {
+        templateUrl: 'views/display.html',
+        controller: 'newsDisplayCtrl',
+        controllerAs: 'displayDash'
       })
       .otherwise({
         redirectTo: '/'

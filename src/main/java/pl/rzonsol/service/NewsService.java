@@ -25,7 +25,7 @@ public class NewsService implements ServiceInterface<News> {
 
     @Override
     public List<News> getObj() {
-        List<News> newsList= newsRepository.findAll();
+        List<News> newsList= newsRepository.findAllByOrderByDataDesc();
         return convertToDTOs(newsList);
     }
 
@@ -51,7 +51,8 @@ public class NewsService implements ServiceInterface<News> {
 
     @Override
     public News findById(String id) {
-        return null;
+
+         return newsRepository.findOne(id);
     }
 
     @Override

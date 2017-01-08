@@ -20,10 +20,11 @@ public class News {
     @Size(min=5, max = 70, message = "Number of character have to be between 5-70 characters")
     private String title;
 
+    @NotNull(message = "Field can not be empty")
     @Size(min=5, message = "Number of character must be greater then 5 characters")
     private String text;
 
-    @NotNull(message = "Field can not be empty")
+//    @NotNull(message = "Field can not be empty")
     private String data;
 
     @NotNull(message = "Field can not be empty")

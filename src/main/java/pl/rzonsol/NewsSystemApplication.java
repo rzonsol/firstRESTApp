@@ -28,12 +28,6 @@ public class NewsSystemApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		News news = new News("tytuł", "teks", "01.01.2016","Piotr");
-		newsService.create(news);
-
-		Comment comment = new Comment("1","comment", "autor", "01.01.2016");
-
-		commentService.create(comment);
 
 	}
 }

@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface CustomInterfaceComment {
 
-    List<Comment> findNewsById(String id);
+    List<Comment> findCommentsById(String id);
 }

@@ -1,0 +1,31 @@
+<div ng-show="showData">
+  <p>{{resultMessage.message}}</p>
+  <p>Title: {{resultMessage.title}}</p>
+  <p>Author: {{resultMessage.author}}</p>
+  <p>Text: {{resultMessage.text}}</p>
+</div>
+
+<div ng-show="showOk">
+  <p>News has been added!</p>
+</div>
+
+
+<div class="col-xs-12">
+  <h4>Add new News</h4>
+  <hr>
+  <form class="create-form" role="form" ng-submit="newsDashBoard.createNews(newsDashBoard.newNews)" novalidate>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" ng-model="newsDashBoard.newNews.title" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <label>Author</label>
+      <input type="text" class="form-control" ng-model="newsDashBoard.newNews.author" placeholder="Author">
+    </div>
+    <div class="form-group">
+      <label>Text</label>
+      <input type="text" class="form-control" ng-model="newsDashBoard.newNews.text" placeholder="Text">
+    </div>
+    <button type="submit" class="btn btn-info btn-lg">Submit</button>
+  </form>
+</div>

@@ -31,12 +31,25 @@ public class AppRESTController {
         this.newsService = newsService;
     }
 
+    @CrossOrigin(value = "*")
     @RequestMapping(method = RequestMethod.GET, value = "/getNews")
     public @ResponseBody List<News> findAll(){
         return  newsService.getObj();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/saveNews")
+    @CrossOrigin(value = "*")
+    @RequestMapping(method = RequestMethod.GET, value = "/getNewsById/{id}")
+    public @ResponseBody News findById(@PathVariable String id){
+        return newsService.findById(id);
+    }
+    @CrossOrigin(value = "*")
+    @RequestMapping(method = RequestMethod.GET, value = "/getCommentsByNewsId/{id}")
+    public @ResponseBody List<Comment> findCommentsById(@PathVariable String id){
+        return commentService.findCommentsById(id);
+    }
+
+    @CrossOrigin(value = "*")
+    @RequestMapping(method = RequestMethod.POST, value = "/getNews")
     public @ResponseBody Map<String,Object> create(@Valid @RequestBody News news, BindingResult bindingResult){
 
         if (checkErrors(bindingResult)){
@@ -47,17 +60,19 @@ public class AppRESTController {
         return response;
     }
 
+    @CrossOrigin(value = "*")
     @RequestMapping(method = RequestMethod.GET, value = "/getComment")
     public @ResponseBody List<Comment> findAllComment(){
         return  commentService.getObj();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/saveComment")
-    public @ResponseBody Map<String,Object> create(@Valid @RequestBody  Comment comment, BindingResult bindingResult){
+    @CrossOrigin(value = "*")
+    @RequestMapping(method = RequestMethod.POST, value = "/getCommentsByNewsId/{id}")
+    public @ResponseBody Map<String,Object> create(@Valid @RequestBody  Comment comment, BindingResult bindingResult,@PathVariable String id){
 
         if (checkErrors(bindingResult)){
             commentService.create(comment);
-            response.put("message", "Comment has Been added!!");
+            response.put("message", "Comment has been added!!");
             response.put("comment",commentService.create(comment));
         }
         return response;
