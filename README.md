@@ -1,5 +1,6 @@
 # firstRESTApp
 
+Used technologies:
 * Rest 
 * MongoDB
 * AngularJs 1
